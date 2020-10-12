@@ -1,16 +1,26 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Kuang from '../components/kuang'
-export default function Home() {
+import Link from 'next/link'
+import Router from 'next/router'
+import '../styles/test.css'
+import {Button} from 'antd'
+const Home = () => {
+  const goToB = () => {
+    Router.push('/kuangB')
+  }
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Kuang>按钮文字</Kuang>
-
-    </div>
+    <>
+      <div>我是首页</div>
+      <div>
+        <Link href="kuangA"><a href="">去KuangA</a></Link>
+        <Link href="kuangB"><a href="">去KuangB</a></Link>
+        <div>
+          <Button>测试AntD</Button>
+        </div>
+        <div>
+          <button onClick={() => { Router.push('/kuangA') }}>kuangA</button>
+          <button onClick={goToB}>kuangB</button>
+        </div>
+      </div>
+    </>
   )
 }
+export default Home
